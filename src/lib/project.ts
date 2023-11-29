@@ -36,7 +36,7 @@ export async function getProjects(code: string) {
 
     // Convert the Set back to an array
     const filteredProjects = Array.from(projects).filter(
-      (project) => project.length > 0
+      (project) => project.length > 0 && project != "index"
     );
 
     const allProjectsData = await Promise.all(
@@ -52,7 +52,9 @@ export async function getProjects(code: string) {
         return data;
       })
     );
-    return allProjectsData;
+
+    const portfolioName = await getProjectData(code, "index");
+    return { portfolioName: portfolioName.name, projects: allProjectsData };
   } catch (error) {
     throw error;
   }

@@ -6,7 +6,7 @@ import { getPortName } from "@/lib/portName";
 
 export default async function Access({ params }: { params: { code: string } }) {
   try {
-    const projects = await getProjects(params.code);
+    const {projects, portfolioName} = await getProjects(params.code);
     const name = await getPortName()
     const ts: Project[] = projects
     .map((project) => {
@@ -24,7 +24,7 @@ export default async function Access({ params }: { params: { code: string } }) {
     })
     .filter(Boolean) as Project[]; // filter out null values
   
-    return <ProjectConsole projects={ts} name={name}/>;
+    return <ProjectConsole projects={ts} name={name} portfolioName={portfolioName}/>;
   } catch (error) {
     console.error("An error occurred:", error);
     // Handle the error here, e.g., display an error message to the user.

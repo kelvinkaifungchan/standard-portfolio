@@ -11,11 +11,13 @@ import { AnimatePresence } from "framer-motion";
 interface ProjectConsoleProps {
   projects: Project[];
   name: string | undefined;
+  portfolioName: string | undefined
 }
 
 export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
   projects,
   name,
+  portfolioName
 }) => {
   const [currentProject, setCurrentProject] = useState(0);
 
@@ -23,7 +25,7 @@ export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
     <>
       <main className="flex h-full w-full font-light overflow-y-hidden overflow-x-hidden">
         <div className="w-full h-full flex flex-col">
-          <div className="text-xl p-5 border-r border-[#FFFFFF55]">{name}</div>
+          <div className="text-xl p-5 border-r border-[#FFFFFF55]">{name} ({portfolioName})</div>
           <HorizontalLine />
           <div className="pr-5 p-5 space-y-3 border-r border-[#FFFFFF55] h-full min-w-[30vw] overflow-y-auto">
             <div>
