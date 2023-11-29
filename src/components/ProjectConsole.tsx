@@ -30,8 +30,7 @@ export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
               <div className="italic text-xl mb-2">Projects</div>
               <div className="italic text-xs">
                 Unless otherwise specified, all images presented in this
-                portfolio have been created and are owned by Kelvin Kaifung
-                Chan. Any unauthorized use, reproduction, or distribution of
+                portfolio have been created and are owned by {name}. Any unauthorized use, reproduction, or distribution of
                 these images without the explicit permission of the author is
                 strictly prohibited.
               </div>
