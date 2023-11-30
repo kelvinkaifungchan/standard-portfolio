@@ -107,7 +107,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6 hover:cursor-pointer hover:opacity-50 duration-150"
+                className="w-10 h-10 hover:cursor-pointer hover:opacity-50 duration-150"
                 onClick={toggle}>
                 <path
                   strokeLinecap="round"

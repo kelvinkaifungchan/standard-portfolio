@@ -19,7 +19,7 @@ export default async function Home() {
     return (
       <main className="flex h-full w-full font-light overflow-y-hidden overflow-x-hidden">
         <div className="w-full h-full flex flex-col border-r border-[#FFFFFF55]">
-          <div className="p-5 text-xl">Portfolio</div>
+          <div className="p-5 text-xl">Interfacing Research Laboratory</div>
           <HorizontalLine />
         </div>
         <AccessCode />
