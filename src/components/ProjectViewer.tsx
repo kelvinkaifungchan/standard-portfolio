@@ -27,7 +27,7 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
           <HorizontalLine />
           <div className="w-full h-full overflow-y-auto customScroll pb-20">
             {/* <Markdown content={data?.contentHtml} /> */}
-            {data.media.map((item, index) => {
+            {data.media?.map((item, index) => {
               if (item.type == "image") {
                 return (
                   <div key={index} className="w-full">
@@ -70,16 +70,18 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
           </div>
         </>
       ) : null}
-      <Lightbox
-        toggle={() => {
-          setLightbox(!lightbox);
-        }}
-        open={lightbox}
-        project={data.name}
-        images={data.media}
-        selectedImage={currentIndex}
-        setSelectedImage={setCurrentIndex}
-      />
+      {data.media && (
+        <Lightbox
+          toggle={() => {
+            setLightbox(!lightbox);
+          }}
+          open={lightbox}
+          project={data.name}
+          images={data.media}
+          selectedImage={currentIndex}
+          setSelectedImage={setCurrentIndex}
+        />
+      )}
     </div>
   );
 };
