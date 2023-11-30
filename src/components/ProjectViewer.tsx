@@ -15,10 +15,8 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
   const [lightbox, setLightbox] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  console.log("DATA", data);
-
   return (
-    <div className="flex flex-col h-full w-full overflow-y-hidden border-r border-[#FFFFFF55] w-[60vw]">
+    <div className="flex flex-col h-full w-full overflow-y-hidden border-r border-[#FFFFFF55] w-[60vw] min-w-[60vw] max-w-[60vw]">
       {data ? (
         <>
           <div className="p-5 flex justify-between text-xl">
