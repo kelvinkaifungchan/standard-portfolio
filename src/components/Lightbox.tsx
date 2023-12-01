@@ -165,14 +165,27 @@ export const Lightbox: React.FC<LightboxProps> = ({
                 src={images[selectedImage].link}
               />
               {/* Desktop */}
-              <img
-                alt={"Image"}
-                className="hidden md:block max-w-[90vw] lg:h-[90vh] md:object-contain hover:cursor-zoom-out"
-                width={2560}
-                height={1440}
-                src={images[selectedImage].link}
-                onClick={toggle}
-              />
+              {images[selectedImage].type == "image" ? (
+                <img
+                  alt={"Image"}
+                  className="hidden md:block max-w-[90vw] lg:h-[90vh] md:object-contain hover:cursor-zoom-out"
+                  width={2560}
+                  height={1440}
+                  src={images[selectedImage].link}
+                  onClick={toggle}
+                />
+              ) : images[selectedImage].type == "video" ? (
+                <video
+                  className="w-full object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-out"
+                  autoPlay
+                  muted
+                  loop
+                  disablePictureInPicture
+                  playsInline
+                  onClick={toggle}>
+                  <source src={images[selectedImage].link} type="video/mp4" />
+                </video>
+              ) : null}
             </motion.div>
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"

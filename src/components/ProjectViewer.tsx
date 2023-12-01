@@ -57,7 +57,11 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
                       muted
                       loop
                       disablePictureInPicture
-                      playsInline>
+                      playsInline
+                      onClick={() => {
+                        setLightbox(true);
+                        setCurrentIndex(index);
+                      }}>
                       <source src={item.link} type="video/mp4" />
                     </video>
                     <div className="px-5 pt-2 italic text-sm">
