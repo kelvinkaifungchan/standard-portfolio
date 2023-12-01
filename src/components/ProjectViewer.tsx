@@ -65,6 +65,21 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
                     </div>
                   </div>
                 );
+              } else if (item.type == "video/sound") {
+                return (
+                  <div key={index} className="w-full">
+                    <video
+                      className="w-full object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-in hover:opacity-50"
+                      controls
+                      disablePictureInPicture
+                      playsInline>
+                      <source src={item.link} type="video/mp4" />
+                    </video>
+                    <div className="px-5 pt-2 italic text-sm">
+                      {item.caption}
+                    </div>
+                  </div>
+                );
               }
             })}
           </div>
