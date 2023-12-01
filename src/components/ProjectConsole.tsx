@@ -27,7 +27,7 @@ export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
         <div className="w-full h-full flex flex-col">
           <div className="text-xl p-5 border-r border-[#FFFFFF55]">{name} ({portfolioName})</div>
           <HorizontalLine />
-          <div className="pr-5 p-5 space-y-3 border-r border-[#FFFFFF55] h-full min-w-[30vw] overflow-y-auto">
+          <div className="pr-5 p-5 space-y-3 border-r border-[#FFFFFF55] h-full min-w-[30vw] overflow-y-auto customScroll">
             <div>
               <div className="italic text-xl mb-2">Projects</div>
               <div className="italic text-xs">
