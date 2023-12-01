@@ -29,12 +29,12 @@ export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
             {name} ({portfolioName})
           </div>
           <HorizontalLine />
-          <div className="pr-5 p-5 space-y-3 border-r border-[#FFFFFF55] h-full  overflow-y-auto customScroll">
+          <div className="pr-5 p-5 space-y-3 border-r border-[#FFFFFF55] h-full overflow-x-hidden overflow-y-auto customScroll">
             <div>
               <div className="italic text-xl mb-2">Projects</div>
               <div className="italic text-xs">
                 Unless otherwise specified, all images presented in this
-                portfolio have been created and are owned by {name}. Any
+                portfolio have been created and are owned by {name} and Interfacing Research Laboratory. Any
                 unauthorized use, reproduction, or distribution of these images
                 without the explicit permission of the author is strictly
                 prohibited.
@@ -49,7 +49,7 @@ export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
                         index == currentProject
                           ? "opacity-100"
                           : "opacity-50 hover:opacity-100"
-                      } duration-150 whitespace-nowrap
+                      } duration-150
                           hover:cursor-pointer text-xl
                         `}
                       onClick={() => {

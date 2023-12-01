@@ -13,7 +13,7 @@ export const Markdown: React.FC<MarkdownProps> = ({ content }) => {
 
       prose-strong:text-white prose-strong:font-normal
       
-      prose-p:text-white prose-p:w-full prose-p:mb-5 prose-p:
+      prose-p:text-white prose-p:w-full prose-p:mb-5
       
       prose-img:max-h-[400px] md:prose-img:max-h-[70vh] lg:prose-img:max-h-auto prose-img:flex prose-img:items-center prose-img:justify-center prose-img:w-full prose-img:object-contain prose-img:break-after-avoid
 
