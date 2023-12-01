@@ -50,7 +50,7 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
                 );
               } else if (item.type == "video") {
                 return (
-                  <div key={index} className="w-full">
+                  <div key={index} className="w-full flex flex-col">
                     <video
                       className="w-full object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-in hover:opacity-50"
                       autoPlay
@@ -67,7 +67,7 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
                 );
               } else if (item.type == "video/sound") {
                 return (
-                  <div key={index} className="w-full">
+                  <div key={index} className="w-full flex flex-col">
                     <video
                       className="w-full object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-in hover:opacity-50"
                       controls
