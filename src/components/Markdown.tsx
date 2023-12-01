@@ -9,7 +9,7 @@ export const Markdown: React.FC<MarkdownProps> = ({ content }) => {
       
       prose 
       
-      prose-headings:text-xl prose-headings:break-after-avoid prose-headings:text-white prose-headings:font-medium
+      prose-headings:text-xl prose-headings:break-after-avoid prose-headings:text-white prose-headings:font-normal
 
       prose-strong:text-white prose-strong:font-normal
       
