@@ -185,6 +185,18 @@ export const Lightbox: React.FC<LightboxProps> = ({
                   onClick={toggle}>
                   <source src={images[selectedImage].link} type="video/mp4" />
                 </video>
+              ) : images[selectedImage].type == "video/sound" ? (
+                <video
+                  className="w-full object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-out"
+                  autoPlay
+                  muted
+                  loop
+                  disablePictureInPicture
+                  playsInline
+                  controls
+                  onClick={toggle}>
+                  <source src={images[selectedImage].link} type="video/mp4" />
+                </video>
               ) : null}
             </motion.div>
             <motion.svg

@@ -75,8 +75,15 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
                     <video
                       className="w-full object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-in hover:opacity-50"
                       controls
+                      muted
+                      autoPlay
+                      loop
                       disablePictureInPicture
-                      playsInline>
+                      playsInline
+                      onClick={() => {
+                        setLightbox(true);
+                        setCurrentIndex(index);
+                      }}>
                       <source src={item.link} type="video/mp4" />
                     </video>
                     <div className="px-5 pt-2 italic text-sm">
