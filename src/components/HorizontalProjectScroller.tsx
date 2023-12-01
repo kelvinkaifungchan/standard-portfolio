@@ -66,6 +66,8 @@ export const HorizontalProjectScroller: React.FC<HorizontalProjectScrollerProps>
           return null;
         }
       })}
+      <div className="mr-[5vw]">
+      </div>
     </div>
   );
 };
