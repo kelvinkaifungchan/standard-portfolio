@@ -84,7 +84,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}>
-        <div className="fixed inset-0 flex flex-col items-center p-4 md:justify-center justify-between">
+        <div className="fixed inset-0 flex flex-col h-full items-center p-4 md:justify-center justify-between">
           <div className="z-20 w-full flex justify-between items-center">
             <div></div>
             <motion.div
@@ -117,7 +117,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
               </svg>
             </motion.div>
           </div>
-          <div className="flex md:overflow-hidden items-center md:space-x-5">
+          <div className="flex h-full md:overflow-hidden items-center md:space-x-5">
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -148,27 +148,12 @@ export const Lightbox: React.FC<LightboxProps> = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ type: "linear", duration: 0.5 }}
-              className="block">
-              {/* Mobile */}
-              <img
-                ref={imageRef}
-                alt={"Image"}
-                className="z-0 relative md:hidden max-w-[90vw] lg:h-[90vh] md:object-contain"
-                style={{
-                  left: imageZoom.x,
-                  top: imageZoom.y,
-                  transform: `scale(${imageZoom.scale})`,
-                  touchAction: "none",
-                }}
-                width={2560}
-                height={1440}
-                src={images[selectedImage].link}
-              />
+              className="h-full">
               {/* Desktop */}
               {images[selectedImage].type == "image" ? (
                 <img
                   alt={"Image"}
-                  className="block max-w-[90vw] h-[80vh] md:object-contain hover:cursor-zoom-out"
+                  className="block max-w-[90vw] h-full md:object-contain hover:cursor-zoom-out"
                   width={2560}
                   height={1440}
                   src={images[selectedImage].link}
@@ -176,7 +161,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
                 />
               ) : images[selectedImage].type == "video" ? (
                 <video
-                  className="w-full object-contain px-5 pt-5 duration-300 h-[80vh] hover:cursor-zoom-out"
+                  className="w-full object-contain px-5 pt-5 duration-300 h-full hover:cursor-zoom-out"
                   autoPlay
                   muted
                   loop
@@ -187,7 +172,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
                 </video>
               ) : images[selectedImage].type == "video/sound" ? (
                 <video
-                  className="w-full object-contain px-5 pt-5 duration-300 h-[80vh] hover:cursor-zoom-out"
+                  className="w-full object-contain px-5 pt-5 duration-300 h-full hover:cursor-zoom-out"
                   autoPlay
                   muted
                   loop
@@ -252,7 +237,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
               </motion.svg>
             </div>
             <motion.div
-              className="md:pt-3 text-center w-3/4"
+              className="md:pt-3 text-center w-3/4 text-xs"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
