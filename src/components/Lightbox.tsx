@@ -168,7 +168,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
               {images[selectedImage].type == "image" ? (
                 <img
                   alt={"Image"}
-                  className="hidden md:block max-w-[90vw] lg:h-[90vh] md:object-contain hover:cursor-zoom-out"
+                  className="block max-w-[90vw] h-[80vh] md:object-contain hover:cursor-zoom-out"
                   width={2560}
                   height={1440}
                   src={images[selectedImage].link}
@@ -176,7 +176,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
                 />
               ) : images[selectedImage].type == "video" ? (
                 <video
-                  className="w-full object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-out"
+                  className="w-full object-contain px-5 pt-5 duration-300 h-[80vh] hover:cursor-zoom-out"
                   autoPlay
                   muted
                   loop
@@ -187,7 +187,7 @@ export const Lightbox: React.FC<LightboxProps> = ({
                 </video>
               ) : images[selectedImage].type == "video/sound" ? (
                 <video
-                  className="w-full object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-out"
+                  className="w-full object-contain px-5 pt-5 duration-300 h-[80vh] hover:cursor-zoom-out"
                   autoPlay
                   muted
                   loop

@@ -6,7 +6,6 @@ import { PulseLoader } from "react-spinners";
 
 export const AccessCode = () => {
   const [code, setCode] = useState("");
-  const [name, setName] = useState("");
   const [loading, setLoading] = useState(false)
   return (
     <div className="flex flex-col w-full h-full justify-center min-w-[80vw]">
