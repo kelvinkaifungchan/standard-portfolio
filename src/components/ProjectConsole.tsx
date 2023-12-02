@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { HorizontalLine } from "@/components/HorizontalLine";
 import { Markdown } from "@/components/Markdown";
 import { Project } from "@/types";
@@ -20,6 +20,28 @@ export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
   portfolioName,
 }) => {
   const [currentProject, setCurrentProject] = useState(0);
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Callback ref to store a reference to each project element
+  const setProjectRef = (index: number) => (el: HTMLDivElement | null) => {
+    projectRefs.current[index] = el;
+  };
+
+  useEffect(() => {
+    const targetElement = projectRefs.current[currentProject];
+    if (targetElement) {
+      // Delay the scroll effect by 500 milliseconds (adjust the duration as needed)
+      const timeoutId = setTimeout(() => {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 1000);
+
+      // Clear the timeout if the component unmounts or the effect runs again
+      return () => clearTimeout(timeoutId);
+    }
+  }, [currentProject]);
 
   return (
     <>
@@ -32,19 +54,14 @@ export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
           <div className="pr-5 p-5 space-y-3 border-r border-[#FFFFFF55] h-full overflow-x-hidden overflow-y-auto customScroll">
             <div>
               <div className="italic text-xl mb-2">Projects</div>
-              <div className="italic text-xs">
-                Unless otherwise specified, all images presented in this
-                portfolio have been created and are owned by {name} and Interfacing Research Laboratory. Any
-                unauthorized use, reproduction, or distribution of these images
-                without the explicit permission of the author is strictly
-                prohibited.
-              </div>
             </div>
             {projects?.map((project, index) => {
               if (project) {
                 return (
-                  <div key={index}>
+                  <>
                     <div
+                      key={index}
+                      ref={setProjectRef(index)}
                       className={`${
                         index == currentProject
                           ? "opacity-100"
@@ -81,12 +98,19 @@ export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
                         </motion.div>
                       ) : null}
                     </AnimatePresence>
-                  </div>
+                  </>
                 );
               } else {
                 return null;
               }
             })}
+            <div className="italic text-xs opacity-50 hover:opacity-100 duration-150">
+              Unless otherwise specified, all images presented in this portfolio
+              have been created and are owned by {name} and Interfacing Research
+              Laboratory. Any unauthorized use, reproduction, or distribution of
+              these images without the explicit permission of the author is
+              strictly prohibited.
+            </div>
           </div>
         </div>
         <HorizontalProjectScroller
