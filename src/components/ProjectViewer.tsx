@@ -43,7 +43,7 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
                         setCurrentIndex(index);
                       }}
                     />
-                    <div className="px-5 pt-2 italic text-sm">
+                    <div className="px-5 pt-2 italic text-xs">
                       {item.caption}
                     </div>
                   </div>
@@ -64,7 +64,7 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
                       }}>
                       <source src={item.link} type="video/mp4" />
                     </video>
-                    <div className="px-5 pt-2 italic text-sm">
+                    <div className="px-5 pt-2 italic text-xs">
                       {item.caption}
                     </div>
                   </div>
@@ -86,7 +86,7 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
                       }}>
                       <source src={item.link} type="video/mp4" />
                     </video>
-                    <div className="px-5 pt-2 italic text-sm">
+                    <div className="px-5 pt-2 italic text-xs">
                       {item.caption}
                     </div>
                   </div>
