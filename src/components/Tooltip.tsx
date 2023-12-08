@@ -32,7 +32,7 @@ const Tooltip: React.FC<TooltipProps> = ({ children, content }) => {
       {children}
       {isTooltipVisible && (
         <div
-          className="fixed bg-black text-white px-4 py-2 rounded opacity-100 transition-opacity"
+          className="fixed bg-[#FFFE03CD] text-black px-4 py-2 rounded opacity-100 transition-opacity"
           style={{ top: tooltipPosition.top, left: tooltipPosition.left }}>
           {content}
         </div>
