@@ -58,9 +58,8 @@ export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
             {projects?.map((project, index) => {
               if (project) {
                 return (
-                  <>
+                  <div key={index}>
                     <div
-                      key={index}
                       ref={setProjectRef(index)}
                       className={`${
                         index == currentProject
@@ -77,7 +76,6 @@ export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
                     <AnimatePresence initial={false}>
                       {index == currentProject ? (
                         <motion.div
-                          key={index}
                           initial="collapsed"
                           animate="open"
                           exit="collapsed"
@@ -98,7 +96,7 @@ export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
                         </motion.div>
                       ) : null}
                     </AnimatePresence>
-                  </>
+                  </div>
                 );
               } else {
                 return null;

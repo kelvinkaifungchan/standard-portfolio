@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Project } from "@/types";
 import { HorizontalLine } from "./HorizontalLine";
 import { Lightbox } from "./Lightbox";
+import Tooltip from "./Tooltip";
 
 interface PureProjectProps {
   data: Project;
@@ -31,18 +32,21 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
               if (item.type == "image") {
                 return (
                   <div key={index} className="w-full">
-                    <img
-                      className="object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-in hover:opacity-50"
-                      src={item.link}
-                      alt={`${index}`}
-                      width={1920}
-                      height={1920}
-                      loading="eager"
-                      onClick={() => {
-                        setLightbox(true);
-                        setCurrentIndex(index);
-                      }}
-                    />
+                    <Tooltip content={"Click to zoom"}>
+                      <img
+                        className="object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-in hover:opacity-50"
+                        src={item.link}
+                        alt={`${index}`}
+                        width={1920}
+                        height={1920}
+                        loading="eager"
+                        onClick={() => {
+                          setLightbox(true);
+                          setCurrentIndex(index);
+                        }}
+                      />
+                    </Tooltip>
+
                     <div className="px-5 pt-2 italic text-xs">
                       {item.caption}
                     </div>
