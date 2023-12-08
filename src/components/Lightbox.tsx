@@ -37,6 +37,30 @@ export const Lightbox: React.FC<LightboxProps> = ({
     setImageZoom({ x: 0, y: 0, scale: 1 });
   }, [selectedImage]);
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft") {
+        if (selectedImage === 0) {
+          setSelectedImage(images.length - 1);
+        } else {
+          setSelectedImage(selectedImage - 1);
+        }
+      } else if (event.key === "ArrowRight") {
+        if (selectedImage < images.length - 1) {
+          setSelectedImage(selectedImage + 1);
+        } else {
+          setSelectedImage(0);
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedImage, setSelectedImage, images]);
+
   useGesture(
     {
       onDrag: ({ offset: [dx, dy] }) => {
