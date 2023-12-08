@@ -12,12 +12,14 @@ interface ProjectConsoleProps {
   projects: Project[];
   name: string | undefined;
   portfolioName: string | undefined;
+  biography?: string;
 }
 
 export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
   projects,
   name,
   portfolioName,
+  biography,
 }) => {
   const [currentProject, setCurrentProject] = useState(0);
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -48,12 +50,17 @@ export const ProjectConsole: React.FC<ProjectConsoleProps> = ({
       <main className="flex h-full w-full font-light overflow-y-hidden overflow-x-hidden">
         <div className="w-full h-full flex flex-col min-w-[30vw] w-[30vw]">
           <div className="text-xl p-5 border-r border-[#FFFFFF55]">
-            {name} ({portfolioName})
+            {name} {portfolioName ? <>({portfolioName})</> : null}
           </div>
           <HorizontalLine />
           <div className="pr-5 p-5 space-y-3 border-r border-[#FFFFFF55] h-full overflow-x-hidden overflow-y-auto customScroll">
+            {biography && (
+              <div>
+                <Markdown content={biography} />
+              </div>
+            )}
             <div>
-              <div className="italic text-xl mb-2">Projects</div>
+              <div className="italic text-xl mb-2">Work</div>
             </div>
             {projects?.map((project, index) => {
               if (project) {

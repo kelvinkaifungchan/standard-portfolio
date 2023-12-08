@@ -53,8 +53,8 @@ export async function getProjects(code: string) {
       })
     );
 
-    const portfolioName = await getProjectData(code, "index");
-    return { portfolioName: portfolioName.name, projects: allProjectsData };
+    const portfolio = await getProjectData(code, "index");
+    return { portfolio, projects: allProjectsData };
   } catch (error) {
     throw error;
   }
@@ -118,6 +118,7 @@ export async function getProjectData(code: string, name: string) {
     const post = {
       id: name,
       name: matterResult.data.name,
+      bio: matterResult.data.bio,
       date: matterResult.data.date,
       description: matterResult.data.description,
       location: matterResult.data.location,

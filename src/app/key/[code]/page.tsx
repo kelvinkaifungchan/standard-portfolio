@@ -6,25 +6,32 @@ import { getPortName } from "@/lib/portName";
 
 export default async function Access({ params }: { params: { code: string } }) {
   try {
-    const {projects, portfolioName} = await getProjects(params.code);
-    const name = await getPortName()
+    const { projects, portfolio } = await getProjects(params.code);
+    const name = await getPortName();
     const ts: Project[] = projects
-    .map((project) => {
-      if (project) {
-        return {
-          name: project.name,
-          date: project.date,
-          description: project.description,
-          location: project.location,
-          contentHtml: project.contentHtml,
-          media: project.media,
-        };
-      }
-      return null; // explicitly return null for projects that are undefined
-    })
-    .filter(Boolean) as Project[]; // filter out null values
-  
-    return <ProjectConsole projects={ts} name={name} portfolioName={portfolioName}/>;
+      .map((project) => {
+        if (project) {
+          return {
+            name: project.name,
+            date: project.date,
+            description: project.description,
+            location: project.location,
+            contentHtml: project.contentHtml,
+            media: project.media,
+          };
+        }
+        return null; // explicitly return null for projects that are undefined
+      })
+      .filter(Boolean) as Project[]; // filter out null values
+
+    return (
+      <ProjectConsole
+        projects={ts}
+        name={name}
+        portfolioName={portfolio.name}
+        biography={portfolio.contentHtml}
+      />
+    );
   } catch (error) {
     console.error("An error occurred:", error);
     // Handle the error here, e.g., display an error message to the user.
