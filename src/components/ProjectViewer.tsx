@@ -32,20 +32,18 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
               if (item.type == "image") {
                 return (
                   <div key={index} className="w-full">
-                    <Tooltip content={"Click to zoom"}>
-                      <img
-                        className="object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-in hover:opacity-50"
-                        src={item.link}
-                        alt={`${index}`}
-                        width={1920}
-                        height={1920}
-                        loading="eager"
-                        onClick={() => {
-                          setLightbox(true);
-                          setCurrentIndex(index);
-                        }}
-                      />
-                    </Tooltip>
+                    <img
+                      className="object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-in hover:opacity-50"
+                      src={item.link}
+                      alt={`${index}`}
+                      width={1920}
+                      height={1920}
+                      loading="eager"
+                      onClick={() => {
+                        setLightbox(true);
+                        setCurrentIndex(index);
+                      }}
+                    />
 
                     <div className="px-5 pt-2 italic text-xs">
                       {item.caption}
@@ -55,21 +53,19 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
               } else if (item.type == "video") {
                 return (
                   <div key={index} className="w-full flex flex-col">
-                    <Tooltip content={"Click to zoom"}>
-                      <video
-                        className="w-full object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-in hover:opacity-50"
-                        autoPlay
-                        muted
-                        loop
-                        disablePictureInPicture
-                        playsInline
-                        onClick={() => {
-                          setLightbox(true);
-                          setCurrentIndex(index);
-                        }}>
-                        <source src={item.link} type="video/mp4" />
-                      </video>
-                    </Tooltip>
+                    <video
+                      className="w-full object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-in hover:opacity-50"
+                      autoPlay
+                      muted
+                      loop
+                      disablePictureInPicture
+                      playsInline
+                      onClick={() => {
+                        setLightbox(true);
+                        setCurrentIndex(index);
+                      }}>
+                      <source src={item.link} type="video/mp4" />
+                    </video>
 
                     <div className="px-5 pt-2 italic text-xs">
                       {item.caption}
@@ -79,22 +75,20 @@ export const ProjectViewer: React.FC<PureProjectProps> = ({ data }) => {
               } else if (item.type == "video/sound") {
                 return (
                   <div key={index} className="w-full flex flex-col">
-                    <Tooltip content={"Click to zoom"}>
-                      <video
-                        className="w-full object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-in hover:opacity-50"
-                        controls
-                        muted
-                        autoPlay
-                        loop
-                        disablePictureInPicture
-                        playsInline
-                        onClick={() => {
-                          setLightbox(true);
-                          setCurrentIndex(index);
-                        }}>
-                        <source src={item.link} type="video/mp4" />
-                      </video>
-                    </Tooltip>
+                    <video
+                      className="w-full object-contain px-5 pt-5 duration-300 max-h-[80vh] hover:cursor-zoom-in hover:opacity-50"
+                      controls
+                      muted
+                      autoPlay
+                      loop
+                      disablePictureInPicture
+                      playsInline
+                      onClick={() => {
+                        setLightbox(true);
+                        setCurrentIndex(index);
+                      }}>
+                      <source src={item.link} type="video/mp4" />
+                    </video>
 
                     <div className="px-5 pt-2 italic text-xs">
                       {item.caption}
